@@ -1,3 +1,15 @@
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import PrivateRoute from './auth/PrivateRoute'
+import { Home, Login } from './pages'
+
 export default function App() {
-  return <h1 className='text-3xl font-bold underline'>App will come here</h1>
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/login' component={Login} />
+        <PrivateRoute exact path='/' component={Home} />
+      </Switch>
+    </BrowserRouter>
+  )
 }
