@@ -8,15 +8,15 @@ export const Home = () => {
   const dispatch = useDispatch()
   const posts = useSelector((state) => state.posts)
 
-    useEffect(() => {
-      dispatch(getPosts())
-    }, [dispatch])
-  
+  useEffect(() => {
+    dispatch(getPosts())
+  }, [dispatch])
+
   return (
     <HomeContainer>
-      {posts.map(post => (
-        <Post key={post._id}/>
-    ))}
+      {posts.map((post) => (
+        <Post key={post._id} post={post} />
+      ))}
     </HomeContainer>
   )
 }
