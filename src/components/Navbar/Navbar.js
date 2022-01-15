@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Menu } from './Menu'
 
 export const Navbar = () => {
-   const user = useSelector((state) => state.user)
+  const [showMenu, setShowMenu] = useState(true)
+  const user = useSelector((state) => state.user)
+  const handleMenu = () => {
+    setShowMenu((show) => !show)
+  }
 
   return (
     <div className='navbar shadow-sm bg-neutral text-neutral-content fixed top-0 w-full z-10'>
@@ -13,7 +18,10 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className='text-fuchsia-100'>
-        Welcome <span className='ml-3 mr-5'>{user && user.name.split(' ')[0]}</span>
+        Welcome{' '}
+        <span className='ml-3 mr-5'>
+          {user.name && user.name.split(' ')[0]}
+        </span>
       </div>
       <div className='flex-1 lg:flex-none'>
         <div className='form-control'>
@@ -58,13 +66,18 @@ export const Navbar = () => {
           </svg>
         </button>
       </div>
-      <div className='flex-none'>
+      <div
+        className='flex-none cursor-pointer'
+        onClick={handleMenu}
+        onMouseEnter={handleMenu}
+      >
         <div className='avatar'>
           <div className='rounded-full w-10 h-10 m-1'>
             <img src='https://i.pravatar.cc/500?img=2' />
           </div>
         </div>
       </div>
+      {showMenu && <Menu handleMenu={handleMenu} />}
     </div>
   )
 }
