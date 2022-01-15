@@ -13,10 +13,8 @@ export const Post = ({
     user,
   },
 }) => {
-
-
   return (
-    <div className='card w-96 h-full bg-white card-bordered card-compact lg:card-normal drop-shadow-2xl cursor-pointer'>
+    <div className='card w-96 h-full bg-white card-bordered card-compact lg:card-normal drop-shadow-md hover:drop-shadow-2xl ease-in duration-500 cursor-pointer'>
       <figure className='h-64'>
         <img className='h-full' src={imageURL} alt={caption} />
       </figure>

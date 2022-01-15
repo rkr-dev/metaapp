@@ -26,7 +26,7 @@ export const Menu = ({ handleMenu }) => {
       onMouseLeave={closeMenu}
     >
       <ul className='menu py-3 shadow-lg bg-base-100 rounded-box'>
-        <li onClick={handleProfile}>
+        <li onClick={handleProfile} >
           <a>Profile</a>
         </li>
         <li onClick={handleLogout}>

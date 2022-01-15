@@ -27,3 +27,5 @@ export const logout = () => API.post('/auth/logout')
 
 // Posts
 export const getPosts = () => API.get('/posts')
+export const uploadImage = (url, image) => axios.post(url, image)
+export const createPost = (post) => API.post('/posts', post)
