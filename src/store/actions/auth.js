@@ -2,14 +2,11 @@ import { AUTH, LOGOUT, SET_USER } from '../../constants/store'
 import * as API from '../../api'
 
 export const login = (formData, history) => async (dispatch) => {
-  console.log(formData)
   try {
     const { data } = await API.login(formData)
-    console.log(data)
     dispatch({ type: AUTH, payload: data })
     history.push('/')
   } catch (err) {
-    console.log(err)
   }
 }
 
@@ -19,7 +16,6 @@ export const register = (formData, history) => async (dispatch) => {
     dispatch({ type: AUTH, payload: data })
     history.push('/')
   } catch (err) {
-    console.log(err)
   }
 }
 
@@ -31,7 +27,6 @@ export const logout = (history) => async (dispatch) => {
     localStorage.clear()
     history.push('/login')
   } catch (err) {
-    console.log(err)
   }
 }
 
@@ -42,6 +37,5 @@ export const setUser = () => (dispatch) => {
       payload: JSON.parse(localStorage.getItem('user')),
     })
   } catch (err) {
-    console.log(err)
   }
 }

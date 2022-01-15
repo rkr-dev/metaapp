@@ -9,7 +9,7 @@ import * as API from '../../api'
 
 export const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false)
-  const [Modal, open, close, isOpen] = useModal('root', {
+  const [Modal, open] = useModal('root', {
     preventScroll: true,
     closeOnOverlayClick: true,
   })
@@ -68,11 +68,11 @@ export const Navbar = () => {
           formData
         )
         const cloudinaryURL = res.data.secure_url
-        console.log('postData', postData)
+
         dispatch(createPost({ ...postData, imageURL: cloudinaryURL }))
         imageInputRef.current.value = ''
       } catch (e) {
-        console.log(e)
+    
       }
     } else {
       // Handle Form Update

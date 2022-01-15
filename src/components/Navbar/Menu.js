@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/actions/auth'
 
@@ -26,11 +26,11 @@ export const Menu = ({ handleMenu }) => {
       onMouseLeave={closeMenu}
     >
       <ul className='menu py-3 shadow-lg bg-base-100 rounded-box'>
-        <li onClick={handleProfile} >
-          <a>Profile</a>
+        <li onClick={handleProfile}>
+          <Link to="#">Profile</Link>
         </li>
         <li onClick={handleLogout}>
-          <a>Logout</a>
+          <Link to="#">Logout</Link>
         </li>
       </ul>
     </div>
